@@ -2,6 +2,7 @@ import React from 'react';
 import './SignUpForm.scss';
 
 import FormInput from '../FormInput/FormInput';
+import Button from '../Button/Button';
 import { useState } from 'react';
 
 import {
@@ -89,7 +90,7 @@ const SignUpForm = () => {
           name='confirmPassword'
           value={confirmPassword}
         />
-        <button type='submit'>Sign Up</button>
+        <Button type='submit'>Sign Up</Button>
       </form>
     </div>
   );
