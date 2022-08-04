@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../contexts/cart';
 import styled from 'styled-components';
-import Button from '../../components/Button/Button';
+import Button, { BUTTON_TYPE_CLASSES } from '../../components/Button/Button';
 
 const ProductCardContainer = styled.div`
   width: 100%;
@@ -69,7 +69,10 @@ const ProductCard = ({ product }) => {
         <span className='name'>{name}</span>
         <span className='price'>{price}</span>
       </div>
-      <Button buttonType='inverted' onClick={addProductToCart}>
+      <Button
+        buttonType={BUTTON_TYPE_CLASSES.inverted}
+        onClick={addProductToCart}
+      >
         Add to cart
       </Button>
     </ProductCardContainer>

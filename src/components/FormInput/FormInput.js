@@ -1,5 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const subColor = 'grey';
+const mainColor = 'black';
+
+const shrinkLabelStyles = css`
+  top: -14px;
+  font-size: 12px;
+  color: ${mainColor};
+`;
 
 const Group = styled.div`
   position: relative;
@@ -8,14 +17,14 @@ const Group = styled.div`
   .form-input {
     background: none;
     background-color: white;
-    color: grey;
+    color: ${subColor};
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid ${subColor};
     margin: 25px 0;
 
     &:focus {
@@ -25,7 +34,7 @@ const Group = styled.div`
     &:focus ~ .form-input-label {
       top: -14px;
       font-size: 12px;
-      color: black;
+      color: ${mainColor};
     }
   }
 
@@ -34,7 +43,7 @@ const Group = styled.div`
   }
 
   .form-input-label {
-    color: grey;
+    color: ${subColor};
     font-size: 16px;
     font-weight: normal;
     position: absolute;
@@ -46,7 +55,7 @@ const Group = styled.div`
     &.shrink {
       top: -14px;
       font-size: 12px;
-      color: black;
+      color: ${mainColor};
     }
   }
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const DirectoryItemContainer = styled.div`
   min-width: 30%;
@@ -61,6 +62,7 @@ const DirectoryItemContainer = styled.div`
       margin: 0 6px 0;
       font-size: 22px;
       color: #4a4a4a;
+      text-transform: uppercase;
     }
 
     p {
@@ -71,9 +73,11 @@ const DirectoryItemContainer = styled.div`
 `;
 
 const DirectoryItem = ({ category }) => {
-  const { imageUrl, title } = category;
+  const { imageUrl, title, route } = category;
+  const navigate = useNavigate();
+  const onNavigateHandler = () => navigate(route);
   return (
-    <DirectoryItemContainer>
+    <DirectoryItemContainer onClick={onNavigateHandler}>
       <div
         className='background-image'
         style={{
