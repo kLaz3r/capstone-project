@@ -1,4 +1,7 @@
-.category-container {
+import React from 'react';
+import styled from 'styled-components';
+
+const DirectoryItemContainer = styled.div`
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
@@ -17,7 +20,7 @@
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
-    & .category-body-container {
+    & .directory-body-container {
       opacity: 0.9;
     }
   }
@@ -41,7 +44,7 @@
     background-position: center;
   }
 
-  .category-body-container {
+  .directory-body-container {
     height: 90px;
     padding: 0 25px;
     display: flex;
@@ -65,4 +68,24 @@
       font-size: 16px;
     }
   }
-}
+`;
+
+const DirectoryItem = ({ category }) => {
+  const { imageUrl, title } = category;
+  return (
+    <DirectoryItemContainer>
+      <div
+        className='background-image'
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      ></div>
+      <div className='directory-body-container'>
+        <h2>{title}</h2>
+        <p>Shop Now</p>
+      </div>
+    </DirectoryItemContainer>
+  );
+};
+
+export default DirectoryItem;

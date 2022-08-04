@@ -1,13 +1,20 @@
 import React from 'react';
-import './Directory.scss';
-import CategoryItem from '../CategoryItem/CategoryItem';
+import styled from 'styled-components';
+import CategoryItem from '../DirectoryItem/DirectoryItem';
+
+const DirectoryContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 const Directory = ({ categories }) => {
   return (
-    <div className='directory-container'>
+    <DirectoryContainer>
       {categories.map((category) => (
         <CategoryItem key={category.id} category={category}></CategoryItem>
       ))}
-    </div>
+    </DirectoryContainer>
   );
 };
 

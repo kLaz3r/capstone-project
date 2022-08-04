@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
-import './SignInForm.scss';
+import styled from 'styled-components';
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase';
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const defaultFormFields = {
   email: '',
@@ -74,12 +79,12 @@ const SignInForm = () => {
           name='password'
           value={password}
         ></FormInput>
-        <div className='buttons-container'>
+        <ButtonsContainer>
           <Button type='submit'>Sign in</Button>
           <Button type='button' buttonType='google' onClick={signInWithGoogle}>
             Google Sign-in
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
     </div>
   );

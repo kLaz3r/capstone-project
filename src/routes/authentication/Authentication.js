@@ -1,24 +1,25 @@
 import React from 'react';
 import SignInForm from '../../components/SignInForm/SignInForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
-import './Authentication.scss';
-
+import styled from 'styled-components';
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase';
 
-const Authentication = () => {
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
+const AuthenticationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin: 30px auto;
+`;
 
+const Authentication = () => {
   return (
-    <div className='authentication-container'>
+    <AuthenticationContainer>
       <SignInForm></SignInForm>
       <SignUpForm></SignUpForm>
-    </div>
+    </AuthenticationContainer>
   );
 };
 
