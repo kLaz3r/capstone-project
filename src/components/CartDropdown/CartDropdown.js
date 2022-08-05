@@ -37,10 +37,11 @@ const CartDropdownContainer = styled.div`
 `;
 
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, toggleIsCartOpen } = useContext(CartContext);
   const navigate = useNavigate();
   const goToCheckoutHandler = () => {
     navigate('/checkout');
+    toggleIsCartOpen();
   };
   return (
     <CartDropdownContainer>

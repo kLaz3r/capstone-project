@@ -6,9 +6,9 @@ const CheckoutItem = ({ item }) => {
   const { incrementItem, decrementItem, removeItemFromCart } = useContext(
     CartContext
   );
-  const incrementItemHandler = () => incrementItem(item.id);
-  const decrementItemHandler = () => decrementItem(item.id);
-  const removeItemFromCartHandler = () => removeItemFromCart(item.id);
+  const incrementItemHandler = () => incrementItem(item);
+  const decrementItemHandler = () => decrementItem(item);
+  const removeItemFromCartHandler = () => removeItemFromCart(item);
   return (
     <div className='checkout-item-container'>
       <div className='image-container'>

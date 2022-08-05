@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { CartContext } from '../../contexts/cart';
-import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
+import { CartContext } from '../../contexts/cart';
 
 const CheckoutContainer = styled.div`
   width: 55%;
@@ -36,11 +36,8 @@ const CheckoutContainer = styled.div`
 `;
 
 const Checkout = () => {
-  const { setIsCartOpen, cartItems, cartTotal } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext(CartContext);
 
-  useEffect(() => {
-    setIsCartOpen(false);
-  }, []);
   return (
     <CheckoutContainer>
       <div className='checkout-header'>
