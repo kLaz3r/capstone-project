@@ -1,12 +1,13 @@
-import { Fragment, useContext } from 'react';
-import { UserContext } from '../../contexts/user';
-import { CartContext } from '../../contexts/cart';
-import { Outlet, Link } from 'react-router-dom';
-import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
-import { signOutUser } from '../../utils/firebase/firebase';
-import CartIcon from '../../components/CartIcon/CartIcon';
-import CartDropdown from '../../components/CartDropdown/CartDropdown';
+import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
+import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import CartDropdown from '../../components/CartDropdown/CartDropdown';
+import CartIcon from '../../components/CartIcon/CartIcon';
+import { selectIsCartOpen } from '../../store/cart/cart-selector';
+import { selectCurrentUser } from '../../store/user/user-selector';
+import { signOutUser } from '../../utils/firebase/firebase';
 
 const NavigationContainer = styled.div`
   height: 70px;
@@ -14,7 +15,6 @@ const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-  }
 `;
 const LogoContainer = styled(Link)`
   height: 100%;
@@ -35,8 +35,8 @@ const NavLink = styled(Link)`
 `;
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
   return (
     <Fragment>
       <NavigationContainer className='navigation'>

@@ -1,7 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
-import { CartContext } from '../../contexts/cart';
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../store/cart/cart-selector';
 
 const CheckoutContainer = styled.div`
   width: 55%;
@@ -36,7 +40,8 @@ const CheckoutContainer = styled.div`
 `;
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
