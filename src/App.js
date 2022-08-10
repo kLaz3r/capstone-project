@@ -6,24 +6,12 @@ import Checkout from './routes/checkout/Checkout';
 import Home from './routes/home/Home';
 import Navigation from './routes/navigation/Navigation';
 import Shop from './routes/shop/Shop';
-import { setCategoriesMap } from './store/categories/category-action';
-import { setCurrentUser } from './store/user/user-action';
-import {
-  createUserDocumentFromAuth,
-  getCategoriesAndDocuments,
-  onAuthStateChangedListener,
-} from './utils/firebase/firebase';
+import { checkUserSession } from './store/user/user-action';
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
+    dispatch(checkUserSession());
   }, []);
 
   return (
